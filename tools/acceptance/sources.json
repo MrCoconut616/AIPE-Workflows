@@ -1,6 +1,11 @@
 {
-  "_comment": "Official repositories for the clean-checkout acceptance test (2026-10-21). 'ref' points at the head of an unmerged stabilisation PR while it awaits maintainer merge; remove the refs once merged to test main. 'requirements', 'install' and 'extras' reproduce each README's install command ({py} = venv python, {today} = ISO date); 'tests' are the README's own contract/test commands, run inside the checkout. Repositories without 'install' are checked out only (the PCB boards are read by the ERC/DRC task through --checkouts).",
+  "_comment": "Official repositories for the clean-checkout acceptance test (2026-10-21, tools consolidated 2026-10-22). 'ref' points at the head of an unmerged stabilisation PR while it awaits maintainer merge; remove the refs once merged to test main. 'requirements', 'install' and 'extras' reproduce each README's install command ({py} = venv python, {today} = ISO date); 'tests' are the README's own contract/test commands, run inside the checkout. Repositories without 'install' are checked out only (the PCB boards are read by the ERC/DRC task through --checkouts). Machine-specific: 'workspace' (short path, 68 characters at most), 'tools_dir' (portable ngspice/Elmer) and 'environment' (per-tool AIPE_* variables).",
+  "workspace": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc",
   "tools_dir": "D:\\EngineeringTools",
+  "environment": {
+    "AIPE_KICAD_CLI": "D:\\EngineeringTools\\KiCad\\10.0\\bin\\kicad-cli.exe",
+    "AIPE_FREECADCMD": "D:\\EngineeringTools\\FreeCAD\\1.1\\bin\\FreeCADCmd.exe"
+  },
   "repositories": [
     {
       "name": "AIPE-Core",

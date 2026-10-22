@@ -1,0 +1,260 @@
+{
+  "created_at": "2026-10-22T14:58:16Z",
+  "messages": [],
+  "run_dir": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance",
+  "run_id": "specification-20261022T145815-25d9a4",
+  "spec_sha256": "d38c34a8afa2a50c88aa55099101504ef078729bcb6bf5c87fd04e0bfefa2e68",
+  "state_versions": [
+    {
+      "created_at": "2026-10-22T14:58:16Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-000.json",
+      "sha256": "482cd95ae84a785426c13d72fcc521c5eff54c1048d586ca182a2e0f49aa3b8d",
+      "task_id": "initial",
+      "version": 0
+    },
+    {
+      "created_at": "2026-10-22T14:58:18Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-001.json",
+      "sha256": "b51903da1da343fb4fcf6058a6031a52d843fba2a5e4c443536eb1bde0c77294",
+      "task_id": "analytic-sps",
+      "version": 1
+    },
+    {
+      "created_at": "2026-10-22T14:58:19Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-002.json",
+      "sha256": "ca9634245580d8a179bc4ab727de7dd7ab9679a09bf3f44f001f3cf4848ac669",
+      "task_id": "circuit-sim-level1",
+      "version": 2
+    },
+    {
+      "created_at": "2026-10-22T14:58:21Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-003.json",
+      "sha256": "d570438e703e09d769ecbd61efd1adf36de8b80530db0200ea583070bb0c4901",
+      "task_id": "circuit-sim-level1-convergence",
+      "version": 3
+    },
+    {
+      "created_at": "2026-10-22T14:58:30Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-004.json",
+      "sha256": "cc667d0cf7bbc8b809d536a8bdd8312ab375d81be291641d6eeaf87552a23dfc",
+      "task_id": "circuit-sim-level2",
+      "version": 4
+    },
+    {
+      "created_at": "2026-10-22T14:58:32Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-005.json",
+      "sha256": "22b8a64d851693148b5b0fe61c7725c76731355c6ce8d2e2a110b4da9c1cba16",
+      "task_id": "control-baseline",
+      "version": 5
+    },
+    {
+      "created_at": "2026-10-22T14:58:35Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-006.json",
+      "sha256": "e1d0f35baedb4ec2b54d34f90544f4f10b56980e8789f6684147d48eadd1f0f3",
+      "task_id": "magnetics-transformer-design",
+      "version": 6
+    },
+    {
+      "created_at": "2026-10-22T14:58:54Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-007.json",
+      "sha256": "b1cd83fc1aa7c27e22825c942ad50206157abf5415c90b547528ba1f7b109953",
+      "task_id": "cad-transformer",
+      "version": 7
+    },
+    {
+      "created_at": "2026-10-22T14:58:57Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-008.json",
+      "sha256": "a2b2ee804f72323e8d21543dc1cc5e4507c9c5afee4f38c027e05eaf0b3f31d1",
+      "task_id": "fem-transformer-window",
+      "version": 8
+    },
+    {
+      "created_at": "2026-10-22T14:59:07Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-009.json",
+      "sha256": "c153947b6a043b66b96d54f70f38d0871575cea91135ec0ecc114553fd72de55",
+      "task_id": "semiconductor-screening",
+      "version": 9
+    },
+    {
+      "created_at": "2026-10-22T14:59:26Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-010.json",
+      "sha256": "b89c11e87c813ac8c04044bd22a63d8cc28694c7e614686dabd8962535bc1e5a",
+      "task_id": "thermal-cooling-design",
+      "version": 10
+    },
+    {
+      "created_at": "2026-10-22T14:59:29Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-011.json",
+      "sha256": "7f81c0489d22d5de44fc919475e329fc2e72572f78c1013b63a0d7d3a5284c6b",
+      "task_id": "cad-heatsink",
+      "version": 11
+    },
+    {
+      "created_at": "2026-10-22T14:59:38Z",
+      "path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\state\\state-012.json",
+      "sha256": "b8a971422a17309295c9594fdd662eb313737443b81856010dfbe87d5707529e",
+      "task_id": "fem-heatsink",
+      "version": 12
+    }
+  ],
+  "status": "completed_with_failed_optional",
+  "tasks": {
+    "analytic-sps": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\analytic-sps\\envelope.json",
+      "finished_at": "2026-10-22T14:58:18Z",
+      "input_hash": "664c042a0702a390157cfc73ed5ccbc386d139a925feb61c455af433e419d477",
+      "message": "",
+      "started_at": "2026-10-22T14:58:18Z",
+      "state_version_after": 1,
+      "status": "completed",
+      "task_id": "analytic-sps"
+    },
+    "cad-heatsink": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\cad-heatsink\\envelope.json",
+      "finished_at": "2026-10-22T14:59:29Z",
+      "input_hash": "6070ea789789a9e299813c704b5977db61c78a6b49dc17258e0d80a94d167fa9",
+      "message": "",
+      "started_at": "2026-10-22T14:59:26Z",
+      "state_version_after": 11,
+      "status": "completed",
+      "task_id": "cad-heatsink"
+    },
+    "cad-transformer": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\cad-transformer\\envelope.json",
+      "finished_at": "2026-10-22T14:58:54Z",
+      "input_hash": "312401c72b10fb904e483e1335e8033b10b0e7f2e3e9649c5c078b79485eac2c",
+      "message": "",
+      "started_at": "2026-10-22T14:58:35Z",
+      "state_version_after": 7,
+      "status": "completed",
+      "task_id": "cad-transformer"
+    },
+    "circuit-sim-level1": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\circuit-sim-level1\\envelope.json",
+      "finished_at": "2026-10-22T14:58:19Z",
+      "input_hash": "e948762f0c44a366627bf8ad5d00847428d5fc20a149bdca1d659c73cd310e62",
+      "message": "",
+      "started_at": "2026-10-22T14:58:18Z",
+      "state_version_after": 2,
+      "status": "completed",
+      "task_id": "circuit-sim-level1"
+    },
+    "circuit-sim-level1-convergence": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\circuit-sim-level1-convergence\\envelope.json",
+      "finished_at": "2026-10-22T14:58:21Z",
+      "input_hash": "e2f78a7502c9b2c40f0d20548d70a332ee2a02b39c94eb02a36a2c875a331687",
+      "message": "",
+      "started_at": "2026-10-22T14:58:19Z",
+      "state_version_after": 3,
+      "status": "completed",
+      "task_id": "circuit-sim-level1-convergence"
+    },
+    "circuit-sim-level2": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\circuit-sim-level2\\envelope.json",
+      "finished_at": "2026-10-22T14:58:30Z",
+      "input_hash": "4ffb267ce9868882af2f9fd914837e5a8baa863a3f1214a60a069cce87eab984",
+      "message": "",
+      "started_at": "2026-10-22T14:58:21Z",
+      "state_version_after": 4,
+      "status": "completed",
+      "task_id": "circuit-sim-level2"
+    },
+    "control-baseline": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\control-baseline\\envelope.json",
+      "finished_at": "2026-10-22T14:58:32Z",
+      "input_hash": "5649e009a6c33e86f018053682ba0c2cd6b897eb7257deaa5d0ad6700bcb8b44",
+      "message": "",
+      "started_at": "2026-10-22T14:58:30Z",
+      "state_version_after": 5,
+      "status": "completed",
+      "task_id": "control-baseline"
+    },
+    "fem-heatsink": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\fem-heatsink\\envelope.json",
+      "finished_at": "2026-10-22T14:59:38Z",
+      "input_hash": "449bcb1870bca1788423022961b39a3c829b2c61f6096a0bb730d006e9af871d",
+      "message": "",
+      "started_at": "2026-10-22T14:59:29Z",
+      "state_version_after": 12,
+      "status": "completed",
+      "task_id": "fem-heatsink"
+    },
+    "fem-transformer-window": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\fem-transformer-window\\envelope.json",
+      "finished_at": "2026-10-22T14:58:57Z",
+      "input_hash": "846d17902da6fe252549b4f5e426fa0e8406d02cfd58501773bd32265a369387",
+      "message": "",
+      "started_at": "2026-10-22T14:58:54Z",
+      "state_version_after": 8,
+      "status": "completed",
+      "task_id": "fem-transformer-window"
+    },
+    "magnetics-transformer-design": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\magnetics-transformer-design\\envelope.json",
+      "finished_at": "2026-10-22T14:58:35Z",
+      "input_hash": "c77dca8c0ff47ceba8688c3e5d12950902dd53769ef6c0e0d1510090a06ad731",
+      "message": "",
+      "started_at": "2026-10-22T14:58:32Z",
+      "state_version_after": 6,
+      "status": "completed",
+      "task_id": "magnetics-transformer-design"
+    },
+    "pcb-erc-drc": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\pcb-erc-drc\\envelope.json",
+      "finished_at": "2026-10-22T14:59:05Z",
+      "input_hash": "3f54fc9dc6dae5209f4a83c2ccfdcebb3a647b6b8a174fc266ac95979b0e9dc5",
+      "message": "boards not clean: ERC errors 0, DRC errors 0, unconnected items {'primary-power': 26, 'secondary-power': 23, 'control': 24}, parity errors 0; boards checked 3/3",
+      "started_at": "2026-10-22T14:58:57Z",
+      "state_version_after": null,
+      "status": "failed",
+      "task_id": "pcb-erc-drc"
+    },
+    "requirements": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\requirements\\envelope.json",
+      "finished_at": "2026-10-22T14:58:18Z",
+      "input_hash": "b22cfe871987fb05f118f2a8994ef95e1a5bce69779c0cab11bb2b103dae8620",
+      "message": "",
+      "started_at": "2026-10-22T14:58:18Z",
+      "state_version_after": null,
+      "status": "completed",
+      "task_id": "requirements"
+    },
+    "semiconductor-screening": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\semiconductor-screening\\envelope.json",
+      "finished_at": "2026-10-22T14:59:07Z",
+      "input_hash": "650d704b2c6e896fb12f8fa562fe778b8caa9ab2474b874a35ae4a5c9a682323",
+      "message": "",
+      "started_at": "2026-10-22T14:59:05Z",
+      "state_version_after": 9,
+      "status": "completed",
+      "task_id": "semiconductor-screening"
+    },
+    "thermal-cooling-design": {
+      "attempts": 1,
+      "envelope_path": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\runs\\dab-acceptance\\tasks\\thermal-cooling-design\\envelope.json",
+      "finished_at": "2026-10-22T14:59:26Z",
+      "input_hash": "2661daad7c772aafd2adc4d64daa3ba7b83072a5e9bc5c3bf7160fd7fdbd05ae",
+      "message": "",
+      "started_at": "2026-10-22T14:59:07Z",
+      "state_version_after": 10,
+      "status": "completed",
+      "task_id": "thermal-cooling-design"
+    }
+  },
+  "updated_at": "2026-10-22T14:59:38Z",
+  "workflow_id": "aipe.workflow.converter-dab",
+  "workflow_source": "D:\\Cursor Workspace\\AIPE-Full-Ecosystem-Integration\\acc\\AIPE-Workflows\\workflows\\converter_dab\\workflow.yaml"
+}

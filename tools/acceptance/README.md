@@ -9,8 +9,13 @@ step tolerates exit 2 (`completed_with_blocked` / `completed_with_failed_optiona
 the report; every other non-zero exit stops the harness.
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\acceptance\run_acceptance.ps1 -Workspace D:\aipe-acceptance -ToolsDir D:\EngineeringTools
+powershell -ExecutionPolicy Bypass -File tools\acceptance\run_acceptance.ps1            # workspace / tools from sources.json
+powershell -ExecutionPolicy Bypass -File tools\acceptance\run_acceptance.ps1 -Workspace D:\acc -ToolsDir D:\EngineeringTools
 ```
+
+Machine-specific settings live in `sources.json`: `workspace` (the default `-Workspace`), `tools_dir` (portable ngspice
+and Elmer, the default `-ToolsDir`) and `environment` (per-tool variables such as `AIPE_KICAD_CLI` and `AIPE_FREECADCMD`
+for tools installed outside the default search paths; they are set for the harness process only).
 
 Windows PowerShell 5.1, Python 3.10+, git and the engineering tools (ngspice, KiCad 10, FreeCAD 1.1, Gmsh, Elmer) are
 required; tools that are not on PATH are found through `-ToolsDir` / `tools_dir` (`AIPE_TOOLS_DIR`). Remove the `ref`

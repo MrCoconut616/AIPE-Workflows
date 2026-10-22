@@ -6,31 +6,41 @@
 # test commands and runs the full DAB workflow with verify and report. Nothing from the developer's repos/ checkouts is
 # used. Every command and its exit code is written to <Workspace>\acceptance.log (UTF-8).
 #
-#   powershell -ExecutionPolicy Bypass -File tools\acceptance\run_acceptance.ps1 -Workspace D:\aipe-acceptance [-ToolsDir <dir>]
+#   powershell -ExecutionPolicy Bypass -File tools\acceptance\run_acceptance.ps1 [-Workspace <dir>] [-ToolsDir <dir>]
 #
-# -ToolsDir (or "tools_dir" in sources.json) points at the portable engineering tools that are not on PATH (ngspice, Elmer);
-# KiCad, FreeCAD and Gmsh are located by `aipe-workflows doctor` itself. The same file lives at tools/acceptance/ in
-# AIPE-Workflows and at stabilisation/acceptance/ in the integration workspace.
+# -Workspace defaults to "workspace" in sources.json, -ToolsDir to "tools_dir"; "environment" in sources.json names the
+# per-tool AIPE_* variables (AIPE_KICAD_CLI, AIPE_FREECADCMD, ...) for tools that live outside the default search paths.
+# ngspice and Elmer are found through the tools directory, Gmsh through the Python environment. The same file lives at
+# tools/acceptance/ in AIPE-Workflows and at stabilisation/acceptance/ in the integration workspace.
 #
-# -Workspace must be a SHORT path: the official repositories contain relative paths of up to 191 characters
+# The workspace must be a SHORT path: the official repositories contain relative paths of up to 191 characters
 # (AIPE-PCB-Agent KiCad libraries) and Windows refuses paths longer than 259 characters unless long paths are enabled, so
-# the workspace prefix may not exceed 68 characters. The default D:\aipe-acceptance (18) leaves ample margin; a folder
-# inside the integration workspace such as D:\Cursor Workspace\AIPE-Full-Ecosystem-Integration\acceptance (60) also works.
+# the workspace prefix may not exceed 68 characters (D:\Cursor Workspace\AIPE-Full-Ecosystem-Integration\acc is 56).
 # Every run executes the workflow afresh: an existing runs\dab-acceptance is removed first (the engine would otherwise
 # resume the earlier, already completed run and execute nothing).
 #
 param(
-    [string]$Workspace = "D:\aipe-acceptance",
+    [string]$Workspace = "",
     [string]$SourcesPath = "$PSScriptRoot\sources.json",
     [string]$ToolsDir = "",
     [switch]$SkipClone,
     [switch]$DryRun
 )
 $ErrorActionPreference = "Stop"
+# Machine-specific choices live in sources.json: "workspace" (default -Workspace), "tools_dir" (default -ToolsDir) and
+# "environment" (per-tool AIPE_* variables such as AIPE_KICAD_CLI / AIPE_FREECADCMD, set for this process only).
+$sourcesObj = Get-Content -LiteralPath $SourcesPath -Raw | ConvertFrom-Json
+$repos = @($sourcesObj.repositories | ForEach-Object { $_ })
+if ($repos.Count -lt 2 -or -not $repos[0].name) { throw "sources file $SourcesPath did not parse into a repository list" }
+foreach ($s in $repos) { if (-not $s.name -or -not $s.url) { throw "sources entry without name/url: $($s | ConvertTo-Json -Compress)" } }
+if (-not $Workspace) { $Workspace = [string]$sourcesObj.workspace }
+if (-not $Workspace) { $Workspace = "D:\aipe-acceptance" }
 $Workspace = $Workspace.TrimEnd("\")
 if ($Workspace.Length -gt 68) {
     throw "workspace path '$Workspace' is $($Workspace.Length) characters; keep it at 68 or fewer (the repositories contain 191-character relative paths and Windows limits paths to 259 characters)"
 }
+$toolsDir = if ($ToolsDir) { $ToolsDir } else { [string]$sourcesObj.tools_dir }
+$today = Get-Date -Format yyyy-MM-dd
 $env:PYTHONUTF8 = "1"
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
 $log = Join-Path $Workspace "acceptance.log"
@@ -49,13 +59,13 @@ function Run($cmd, [int[]]$AllowExit = @(0), [string]$Cwd = "") {
     if ($AllowExit -notcontains $code) { throw "command failed ($code): $cmd" }
 }
 
-$sourcesObj = Get-Content -LiteralPath $SourcesPath -Raw | ConvertFrom-Json
-$repos = @($sourcesObj.repositories | ForEach-Object { $_ })
-$toolsDir = if ($ToolsDir) { $ToolsDir } else { [string]$sourcesObj.tools_dir }
-$today = Get-Date -Format yyyy-MM-dd
-if ($repos.Count -lt 2 -or -not $repos[0].name) { throw "sources file $SourcesPath did not parse into a repository list" }
-foreach ($s in $repos) { if (-not $s.name -or -not $s.url) { throw "sources entry without name/url: $($s | ConvertTo-Json -Compress)" } }
-Step "0. Sources: $SourcesPath ($($repos.Count) repositories, tools $toolsDir)"
+Step "0. Sources: $SourcesPath ($($repos.Count) repositories); workspace $Workspace; tools $toolsDir"
+if ($sourcesObj.environment) {
+    foreach ($p in $sourcesObj.environment.PSObject.Properties) {
+        Set-Item -Path "Env:$($p.Name)" -Value ([string]$p.Value)
+        Log "env $($p.Name)=$($p.Value)"
+    }
+}
 
 Step "1. Clone repositories into $Workspace"
 foreach ($s in $repos) {

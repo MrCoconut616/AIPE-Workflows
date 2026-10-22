@@ -1,0 +1,95 @@
+# Acceptance run of 2026-10-22 (workspace D:\Cursor Workspace\AIPE-Full-Ecosystem-Integration\acc, tools under
+# D:\EngineeringTools) compared with the acceptance run of 2026-10-21 (D:\aipe-acceptance, per-user KiCad 10.0.6 and
+# FreeCAD, project tools folder): every numeric/string leaf of report.json and the final Engineering State, volatile
+# keys excluded.
+
+report.json keys: ['blocked_items', 'engineering_state', 'environment', 'failed_items', 'figures', 'run', 'schema', 'specification', 'tasks', 'verification_gates']
+
+### tasks: 3427 leaves compared, 10 differ, 0 only in acceptance, 0 only in migrated run
+  DIFF analytic-sps.outputs.evidence_id: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF pcb-erc-drc.model.version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.boards.control.drc.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.boards.control.erc.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.boards.primary-power.drc.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.boards.primary-power.erc.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.boards.secondary-power.drc.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.boards.secondary-power.erc.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.outputs.kicad_version: acceptance='10.0.7' migrated='10.0.6'
+  DIFF pcb-erc-drc.tool.version: acceptance='10.0.7' migrated='10.0.6'
+
+### engineering_state: 1798 leaves compared, 31 differ, 0 only in acceptance, 0 only in migrated run
+  DIFF final.control.evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.evidence[3].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.evidence[4].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.evidence[5].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.evidence[6].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.evidence[7].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.magnetics[0].evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.magnetics[1].evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.magnetics[2].evidence_refs[0]: acceptance='evidence.magnetics-design-5ddd1a' migrated='evidence.magnetics-design-48bad7'
+  DIFF final.magnetics[3].evidence_refs[0]: acceptance='evidence.magnetics-design-5ddd1a' migrated='evidence.magnetics-design-48bad7'
+  DIFF final.semiconductors[0].evidence_refs[0]: acceptance='evidence.semiconductor-screening-5ddd1a' migrated='evidence.semiconductor-screening-48bad7'
+  DIFF final.semiconductors[1].evidence_refs[0]: acceptance='evidence.semiconductor-screening-5ddd1a' migrated='evidence.semiconductor-screening-48bad7'
+  DIFF final.simulation.runs[0].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-5ddd1a' migrated='evidence.sim-circuit-sim-level1-48bad7'
+  DIFF final.simulation.runs[1].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-convergence-5ddd1a' migrated='evidence.sim-circuit-sim-level1-convergence-48bad7'
+  DIFF final.simulation.runs[2].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level2-5ddd1a' migrated='evidence.sim-circuit-sim-level2-48bad7'
+  DIFF final.simulation.runs[3].evidence_refs[0]: acceptance='evidence.fem-transformer-window-5ddd1a' migrated='evidence.fem-transformer-window-48bad7'
+  DIFF final.simulation.runs[4].evidence_refs[0]: acceptance='evidence.fem-heatsink-5ddd1a' migrated='evidence.fem-heatsink-48bad7'
+  DIFF final.thermal.evidence_refs[0]: acceptance='evidence.fem-heatsink-5ddd1a' migrated='evidence.fem-heatsink-48bad7'
+  DIFF final.thermal.evidence_refs[3]: acceptance='evidence.thermal-cooling-5ddd1a' migrated='evidence.thermal-cooling-48bad7'
+  DIFF final.validation.checks[0].evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF final.validation.checks[10].evidence_refs[0]: acceptance='evidence.cad-heatsink-5ddd1a' migrated='evidence.cad-heatsink-48bad7'
+  DIFF final.validation.checks[11].evidence_refs[0]: acceptance='evidence.fem-heatsink-5ddd1a' migrated='evidence.fem-heatsink-48bad7'
+  DIFF final.validation.checks[1].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-5ddd1a' migrated='evidence.sim-circuit-sim-level1-48bad7'
+  DIFF final.validation.checks[2].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-convergence-5ddd1a' migrated='evidence.sim-circuit-sim-level1-convergence-48bad7'
+  DIFF final.validation.checks[3].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level2-5ddd1a' migrated='evidence.sim-circuit-sim-level2-48bad7'
+  DIFF final.validation.checks[4].evidence_refs[0]: acceptance='evidence.control-baseline-5ddd1a' migrated='evidence.control-baseline-48bad7'
+  DIFF final.validation.checks[5].evidence_refs[0]: acceptance='evidence.magnetics-design-5ddd1a' migrated='evidence.magnetics-design-48bad7'
+  DIFF final.validation.checks[6].evidence_refs[0]: acceptance='evidence.cad-transformer-5ddd1a' migrated='evidence.cad-transformer-48bad7'
+  DIFF final.validation.checks[7].evidence_refs[0]: acceptance='evidence.fem-transformer-window-5ddd1a' migrated='evidence.fem-transformer-window-48bad7'
+  DIFF final.validation.checks[8].evidence_refs[0]: acceptance='evidence.semiconductor-screening-5ddd1a' migrated='evidence.semiconductor-screening-48bad7'
+  DIFF final.validation.checks[9].evidence_refs[0]: acceptance='evidence.thermal-cooling-5ddd1a' migrated='evidence.thermal-cooling-48bad7'
+
+### verification_gates: 165 leaves compared, 0 differ, 0 only in acceptance, 0 only in migrated run
+
+### specification: 42 leaves compared, 0 differ, 0 only in acceptance, 0 only in migrated run
+
+### failed_items: 1 leaves compared, 0 differ, 0 only in acceptance, 0 only in migrated run
+
+### blocked_items: 0 leaves compared, 0 differ, 0 only in acceptance, 0 only in migrated run
+
+final states: acceptance state-012.json, migrated state-012.json
+
+### final engineering state: 1772 leaves compared, 31 differ, 0 only in acceptance, 0 only in migrated run
+  DIFF control.evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF evidence[3].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF evidence[4].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF evidence[5].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF evidence[6].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF evidence[7].provenance.inputs[1]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF magnetics[0].evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF magnetics[1].evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF magnetics[2].evidence_refs[0]: acceptance='evidence.magnetics-design-5ddd1a' migrated='evidence.magnetics-design-48bad7'
+  DIFF magnetics[3].evidence_refs[0]: acceptance='evidence.magnetics-design-5ddd1a' migrated='evidence.magnetics-design-48bad7'
+  DIFF semiconductors[0].evidence_refs[0]: acceptance='evidence.semiconductor-screening-5ddd1a' migrated='evidence.semiconductor-screening-48bad7'
+  DIFF semiconductors[1].evidence_refs[0]: acceptance='evidence.semiconductor-screening-5ddd1a' migrated='evidence.semiconductor-screening-48bad7'
+  DIFF simulation.runs[0].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-5ddd1a' migrated='evidence.sim-circuit-sim-level1-48bad7'
+  DIFF simulation.runs[1].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-convergence-5ddd1a' migrated='evidence.sim-circuit-sim-level1-convergence-48bad7'
+  DIFF simulation.runs[2].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level2-5ddd1a' migrated='evidence.sim-circuit-sim-level2-48bad7'
+  DIFF simulation.runs[3].evidence_refs[0]: acceptance='evidence.fem-transformer-window-5ddd1a' migrated='evidence.fem-transformer-window-48bad7'
+  DIFF simulation.runs[4].evidence_refs[0]: acceptance='evidence.fem-heatsink-5ddd1a' migrated='evidence.fem-heatsink-48bad7'
+  DIFF thermal.evidence_refs[0]: acceptance='evidence.fem-heatsink-5ddd1a' migrated='evidence.fem-heatsink-48bad7'
+  DIFF thermal.evidence_refs[3]: acceptance='evidence.thermal-cooling-5ddd1a' migrated='evidence.thermal-cooling-48bad7'
+  DIFF validation.checks[0].evidence_refs[0]: acceptance='evidence.analytic-sps-5ddd1a' migrated='evidence.analytic-sps-48bad7'
+  DIFF validation.checks[10].evidence_refs[0]: acceptance='evidence.cad-heatsink-5ddd1a' migrated='evidence.cad-heatsink-48bad7'
+  DIFF validation.checks[11].evidence_refs[0]: acceptance='evidence.fem-heatsink-5ddd1a' migrated='evidence.fem-heatsink-48bad7'
+  DIFF validation.checks[1].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-5ddd1a' migrated='evidence.sim-circuit-sim-level1-48bad7'
+  DIFF validation.checks[2].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level1-convergence-5ddd1a' migrated='evidence.sim-circuit-sim-level1-convergence-48bad7'
+  DIFF validation.checks[3].evidence_refs[0]: acceptance='evidence.sim-circuit-sim-level2-5ddd1a' migrated='evidence.sim-circuit-sim-level2-48bad7'
+  DIFF validation.checks[4].evidence_refs[0]: acceptance='evidence.control-baseline-5ddd1a' migrated='evidence.control-baseline-48bad7'
+  DIFF validation.checks[5].evidence_refs[0]: acceptance='evidence.magnetics-design-5ddd1a' migrated='evidence.magnetics-design-48bad7'
+  DIFF validation.checks[6].evidence_refs[0]: acceptance='evidence.cad-transformer-5ddd1a' migrated='evidence.cad-transformer-48bad7'
+  DIFF validation.checks[7].evidence_refs[0]: acceptance='evidence.fem-transformer-window-5ddd1a' migrated='evidence.fem-transformer-window-48bad7'
+  DIFF validation.checks[8].evidence_refs[0]: acceptance='evidence.semiconductor-screening-5ddd1a' migrated='evidence.semiconductor-screening-48bad7'
+  DIFF validation.checks[9].evidence_refs[0]: acceptance='evidence.thermal-cooling-5ddd1a' migrated='evidence.thermal-cooling-48bad7'
+TOTAL differing leaves across report sections: 41
