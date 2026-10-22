@@ -197,7 +197,7 @@ fork-PR workflow run needs maintainer approval, so the same workflow was exercis
 | high | 22 PRs await maintainer merge; Registry/Hub reference PR heads until then | merge in order: Electrical #3, Thermal #2, CAD #1 → Registry #3 (re-pin to merged commits) → Workflows #2/#3 → PCB #8 → Spirit-Connect #21/#22 → README PRs |
 | medium | fork-PR workflows in CAD, Thermal, Field-Simulation, Doc and PCB-Agent need a maintainer's approval to run | approve the first runs |
 | medium | legacy id `aipe.design-agent` still in the index as alias | remove after Workflows #3 and Spirit-Connect #22 are merged |
-| medium | manifests of the README-standardised repositories do not list the new `docs/*.md` files | add them in a follow-up (documentation_drift is only checked for listed files) |
+| resolved 2026-10-22 | manifests of the README-standardised repositories did not list the new `docs/*.md` files (39 files in eleven manifests) | added to the `documentation` section on every README branch, schema-validated; the README PRs carry the change |
 | low | several repositories declare no code licence (Simulation-Skills, Semiconductor-Database, Magnetics-Database, PCB-Agent, Doc, IEEE-Paper-Agent) | owner decision |
 | low | CFD not executed (OpenFOAM unavailable on this Windows host); film coefficients remain correlation inputs | run the recorded job spec on a Linux host |
 | low | PCB evidence produced before 2026-10-22 (sections E, F and the 2026-10-21 acceptance) names KiCad 10.0.6, the duplicate per-user copy that has since been removed; the only KiCad is now 10.0.7 under `D:\EngineeringTools` | regenerate the board evidence with 10.0.7 at the next re-routing; the 2026-10-22 acceptance already records 10.0.7 |
