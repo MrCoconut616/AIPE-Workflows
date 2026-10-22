@@ -200,6 +200,7 @@ fork-PR workflow run needs maintainer approval, so the same workflow was exercis
 | medium | manifests of the README-standardised repositories do not list the new `docs/*.md` files | add them in a follow-up (documentation_drift is only checked for listed files) |
 | low | several repositories declare no code licence (Simulation-Skills, Semiconductor-Database, Magnetics-Database, PCB-Agent, Doc, IEEE-Paper-Agent) | owner decision |
 | low | CFD not executed (OpenFOAM unavailable on this Windows host); film coefficients remain correlation inputs | run the recorded job spec on a Linux host |
+| low | PCB evidence produced before 2026-10-22 (sections E, F and the 2026-10-21 acceptance) names KiCad 10.0.6, the duplicate per-user copy that has since been removed; the only KiCad is now 10.0.7 under `D:\EngineeringTools` | regenerate the board evidence with 10.0.7 at the next re-routing; the 2026-10-22 acceptance already records 10.0.7 |
 
 ## J. Reproduction
 
@@ -266,3 +267,23 @@ analytical verification executed; circuit simulation executed (ngspice, three ru
 mesh levels); CAD geometry checks executed (status "review", no hard failures); PCB ERC/DRC executed (fails on open
 connections); engineering review, experimental validation and hardware qualification **not performed** — the gates are
 `not_run` and nothing in this report claims physical acceptance.
+
+### Update 2026-10-22 — engineering tools consolidated, acceptance re-executed
+
+A software audit (`env-logs/software-install-audit-2026-10-22.json` in the integration workspace) found two KiCad
+installations: 10.0.7 at `D:\EngineeringTools\KiCad\10.0` (installed 2026-10-09 by the AIPE-PCB-Agent Codex session) and the
+older duplicate 10.0.6 that this cycle's first session installed per-user through winget because its detection never looked in
+`D:\EngineeringTools`. On the owner's instruction every engineering tool now lives under `D:\EngineeringTools` (KiCad 10.0.7
+reinstalled once from the SHA-256-verified cached installer, FreeCAD 1.1.4 reinstalled there, the portable ngspice 47 and
+Elmer 9.0 folders moved there, installers cached in `installers\`), located through `AIPE_TOOLS_DIR`, `AIPE_KICAD_CLI`,
+`AIPE_FREECADCMD`, `AIPE_ELMERSOLVER` and `AIPE_NGSPICE`. Two defects surfaced and were fixed on this branch (610a415): the
+doctor treated `AIPE_TOOLS_DIR` as a folder that had to be named `tools`, and the FEM adapter let aipe_fieldsim discover Elmer
+on its own. The acceptance harness now takes workspace, tools directory and per-tool variables from `sources.json`, removes a
+stale run directory before executing (the engine would otherwise resume the completed run) and refuses workspace paths longer
+than 68 characters (the repositories contain 191-character relative paths; a1532dc, 7283812).
+
+The acceptance was executed again in the relocated workspace `D:\Cursor Workspace\AIPE-Full-Ecosystem-Integration\acc`
+(2026-10-22 14:55–14:59 UTC) with every tool under `D:\EngineeringTools`: all steps exit 0 except the workflow run (exit 2, PCB
+check failed by design), gates unchanged, `verify` clean, and the leaf-by-leaf comparison with the 2026-10-21 run shows identical
+engineering values — only the run-specific evidence ids and the recorded KiCad version (10.0.7 instead of 10.0.6) differ.
+Evidence: `examples/dab-10kw/results/acceptance-2026-10-22/`.
