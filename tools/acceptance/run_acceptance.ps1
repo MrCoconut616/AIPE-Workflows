@@ -12,6 +12,13 @@
 # KiCad, FreeCAD and Gmsh are located by `aipe-workflows doctor` itself. The same file lives at tools/acceptance/ in
 # AIPE-Workflows and at stabilisation/acceptance/ in the integration workspace.
 #
+# -Workspace must be a SHORT path: the official repositories contain relative paths of up to 191 characters
+# (AIPE-PCB-Agent KiCad libraries) and Windows refuses paths longer than 259 characters unless long paths are enabled, so
+# the workspace prefix may not exceed 68 characters. The default D:\aipe-acceptance (18) leaves ample margin; a folder
+# inside the integration workspace such as D:\Cursor Workspace\AIPE-Full-Ecosystem-Integration\acceptance (60) also works.
+# Every run executes the workflow afresh: an existing runs\dab-acceptance is removed first (the engine would otherwise
+# resume the earlier, already completed run and execute nothing).
+#
 param(
     [string]$Workspace = "D:\aipe-acceptance",
     [string]$SourcesPath = "$PSScriptRoot\sources.json",
@@ -20,6 +27,10 @@ param(
     [switch]$DryRun
 )
 $ErrorActionPreference = "Stop"
+$Workspace = $Workspace.TrimEnd("\")
+if ($Workspace.Length -gt 68) {
+    throw "workspace path '$Workspace' is $($Workspace.Length) characters; keep it at 68 or fewer (the repositories contain 191-character relative paths and Windows limits paths to 259 characters)"
+}
 $env:PYTHONUTF8 = "1"
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
 $log = Join-Path $Workspace "acceptance.log"
@@ -92,6 +103,7 @@ Step "5-16. DAB workflow: plan, run, verify, report"
 $spec = Join-Path $Workspace "AIPE-Workflows\examples\dab-10kw\specification.yaml"
 $wf = Join-Path $Workspace "AIPE-Workflows\workflows\converter_dab\workflow.yaml"
 $run = Join-Path $Workspace "runs\dab-acceptance"
+if ((Test-Path $run) -and -not $DryRun) { Remove-Item -Recurse -Force $run; Log "(removed the previous run directory $run so that every task executes again)" }
 Run "$pyq -m aipe_workflows.cli plan `"$spec`" --checkouts `"$Workspace`" --workflow `"$wf`" --run-dir `"$run`" --json"
 # exit 2 = completed_with_blocked / completed_with_failed_optional (an optional task such as pcb-erc-drc fails by design
 # while boards still have open connections); the status is recorded and judged in the report, never hidden.

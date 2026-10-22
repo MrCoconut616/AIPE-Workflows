@@ -16,3 +16,10 @@ Windows PowerShell 5.1, Python 3.10+, git and the engineering tools (ngspice, Ki
 required; tools that are not on PATH are found through `-ToolsDir` / `tools_dir` (`AIPE_TOOLS_DIR`). Remove the `ref`
 entries from `sources.json` once the PRs are merged so that the default branches are tested. The executed result of
 2026-10-21 is recorded in `examples/dab-10kw/results/acceptance-2026-10-21/`.
+
+The workspace is disposable: it holds fresh clones, the virtual environment and the run outputs, all of which the next
+run recreates (an existing `runs\dab-acceptance` is removed first so that every task executes again; pass `-SkipClone`
+to reuse the clones and the venv). Keep the workspace path short, 68 characters at most: the repositories contain
+relative paths of up to 191 characters and Windows rejects paths longer than 259 characters unless long paths are
+enabled. `D:\aipe-acceptance` or a short folder inside the integration workspace both satisfy this; the script refuses
+longer prefixes.
